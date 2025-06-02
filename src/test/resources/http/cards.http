@@ -1,0 +1,36 @@
+@physical_card_id = 245b86ba-87e9-4f37-a7a4-63be3092dcf6
+@virtual_card_id = 28214569-dd49-4fcc-adbc-b23404b21c22
+@card_id = {{virtual_card_id}}
+
+@account_id = ada3a49d-e3eb-4515-92d4-7e99837f7fc7
+
+### Create a new virtual card
+POST {{base_url}}/{{account_id}}/cards
+Content-Type: application/json
+
+{
+  "iban": "GB33BUKB20201555555555"
+}
+
+### Create a new physical card
+POST {{base_url}}/{{account_id}}/cards
+Content-Type: application/json
+
+{
+  "iban": "GB33BUKB20201555555556",
+  "pin": "1234"
+}
+
+### Get Cards for an Account
+GET {{base_url}}/{{account_id}}/cards
+
+### Change Card PIN
+PATCH {{base_url}}/{{account_id}}/cards
+Content-Type: application/json
+
+{
+  "pin": "1236"
+}
+
+### Revoke Card
+POST http://localhost:8080/{{account_id}}/cards/{{card_id}}/revoke

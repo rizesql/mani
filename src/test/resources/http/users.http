@@ -1,0 +1,39 @@
+@user_id  = c7eb34e5-5294-48f2-9953-1ebaf621d8a0
+
+### Get all users
+GET {{base_url}}/users
+Accept: application/json
+
+### Create a new user
+POST {{base_url}}/users
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "johndoe",
+  "email": "john.doe@example.com"
+}
+
+### Get a specific user by ID
+GET {{base_url}}/users/{{user_id}}
+Accept: application/json
+
+### Change user's email
+PATCH {{base_url}}/users/{{user_id}}/email
+Content-Type: application/json
+
+{
+  "email": "john.doi@example.com"
+}
+
+### Change user's username
+PATCH {{base_url}}/users/{{user_id}}/username
+Content-Type: application/json
+
+{
+  "username": "johndoi"
+}
+
+### Delete user
+DELETE {{base_url}}/users/{{user_id}}
+Accept: application/json

@@ -1,0 +1,21 @@
+@transaction_id = 3ce90fe0-60ed-420d-a81f-489c4b3033ec
+@credit_account_id = ada3a49d-e3eb-4515-92d4-7e99837f7fc7
+@debit_account_id = 3c0ece47-a4c4-4207-aa0a-f2a6711b1273
+@account_id = {{debit_account_id}}
+
+### Create a transaction
+POST {{base_url}}/transactions
+Content-Type: application/json
+
+{
+  "creditAccountId": "{{credit_account_id}}",
+  "debitAccountId": "{{debit_account_id}}",
+  "amount": 100.00,
+  "currency": "EUR"
+}
+
+### Lookup a transaction by ID
+GET {{base_url}}/transactions/{{transaction_id}}
+
+### Get all transactions for an account
+GET {{base_url}}/accounts/{{account_id}}/transactions

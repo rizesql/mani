@@ -1,0 +1,20 @@
+@account_id = 3c0ece47-a4c4-4207-aa0a-f2a6711b1273
+
+### Create a new account
+POST {{base_url}}/accounts
+Content-Type: application/json
+
+{
+  "ownerId": "11111111-1111-1111-1111-111111111111",
+  "amount": 1000.00,
+  "currency": "EUR"
+}
+
+### Lookup account by ID
+GET {{base_url}}/accounts/{{account_id}}
+
+### Get balance for account (no time range)
+GET {{base_url}}/accounts/{{account_id}}/balance
+
+### Close account
+POST {{base_url}}/accounts/{{account_id}}/close
